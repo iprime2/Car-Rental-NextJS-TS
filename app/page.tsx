@@ -1,8 +1,16 @@
 import { CarCard, CustomFilter, Hero, SearchBar } from '@/components'
+import { fuels, manufacturers, yearsOfProduction } from '@/contants'
+import { HomeProps } from '@/types'
 import { fetchCars } from '@/utils'
 
-export default async function Home() {
-  const allCars = await fetchCars()
+export default async function Home({ searchParams }: HomeProps) {
+  const allCars = await fetchCars({
+    manufacturer: searchParams.manufacturer || '',
+    model: searchParams.model || 2022,
+    year: searchParams.year || '',
+    fuel: searchParams.fuel || 10,
+    limit: searchParams.limit || '',
+  })
 
   const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1 || !allCars
 
@@ -17,7 +25,16 @@ export default async function Home() {
         <div className='home__filters'>
           <SearchBar />
           <div className='home__filter-container'>
+<<<<<<< Updated upstream
       
+=======
+<<<<<<< HEAD
+            <CustomFilter title='fuel' options={fuels} />
+            <CustomFilter title='year' options={yearsOfProduction} />
+=======
+      
+>>>>>>> 7e69f08e2aded9a3e218da1ab8d0d87aab0bf5ae
+>>>>>>> Stashed changes
           </div>
         </div>
         {!isDataEmpty ? (
