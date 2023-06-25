@@ -33,33 +33,51 @@ export async function fetchCars(filters: FilterProps) {
   return result
 }
 
-export const generateCarImageUrl = (car: CarProps, angle?: string) => {
-  const url = new URL('https://cdn.imagin.studio/getimage')
+// export const generateCarImageUrl = (car: CarProps, angle?: string) => {
+//   const url = new URL('https://cdn.imagin.studio/getimage')
 
-  const { make, year, model } = car
-
-  url.searchParams.append(
-    'customer',
-    process.env.NEXT_PUBLIC_IMAGIN_API_KEY || ''
-  )
-  url.searchParams.append('make', make)
-  url.searchParams.append('modelFamily', model.split(' ')[0])
-  url.searchParams.append('zoomType', 'fullscreen')
-  url.searchParams.append('modelYear', `${year}`)
-  // url.searchParams.append('zoomLevel', zoomLevel);
-  url.searchParams.append('angle', `${angle}`)
-
-  return `${url}`
-}
-
-// export const generateCarImageUrl = async (car: CarProps, angle?: string) => {
 //   const { make, year, model } = car
-//   const res = await fetch(
-//     `http://api.carsxe.com/images?key=p1uqano4z_qmicagkqz_xlnzmfbyy&year=${year}&make=${make}&model=${model}&format=json`
-//   )
 
-//   return res.json()
+//   url.searchParams.append(
+//     'customer',
+//     process.env.NEXT_PUBLIC_IMAGIN_API_KEY || ''
+//   )
+//   url.searchParams.append('make', make)
+//   url.searchParams.append('modelFamily', model.split(' ')[0])
+//   url.searchParams.append('zoomType', 'fullscreen')
+//   url.searchParams.append('modelYear', `${year}`)
+//   // url.searchParams.append('zoomLevel', zoomLevel);
+//   url.searchParams.append('angle', `${angle}`)
+
+//   return `${url}`
 // }
+
+export const generateCarImageUrl = async (car: CarProps, angle?: string) => {
+  const { make, year, model } = car
+  let headers = new Headers()
+
+  headers.append('Content-Type', 'application/json')
+  headers.append('Accept', 'application/json')
+
+  headers.append('Access-Control-Allow-Origin', 'http://localhost:3000')
+  headers.append('Access-Control-Allow-Credentials', 'true')
+
+  const res = await fetch(
+    `http://api.carsxe.com/images?key=p1uqano4z_qmicagkqz_xlnzmfbyy&year=${year}&make=${make}&model=${model}&format=json`,
+    {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'text/plain',
+        ' Accept': 'text/plain',
+        'Access-Control-Allow-Origin': 'http://localhost:3000',
+        'Access-Control-Allow-Credentials': 'true',
+      },
+    }
+  )
+
+  const result = res.json()
+  return result
+}
 
 export const updateSearchParams = (type: string, value: string) => {
   // Get the current URL search params

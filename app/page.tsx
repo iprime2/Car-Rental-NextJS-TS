@@ -3,14 +3,13 @@
 import { CarCard, CustomFilter, Hero, SearchBar, ShowMore } from '@/components'
 import { fuels, manufacturers, yearsOfProduction } from '@/contants'
 import { CarState } from '@/types'
-import { fetchCars } from '@/utils'
+import { fetchCars, generateCarImageUrl } from '@/utils'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
 
 export default function Home() {
   const [allCars, setAllCars] = useState<CarState>([])
   const [loading, setLoading] = useState(false)
-  const [error, setError] = useState()
 
   // search states
   const [manufacturer, setManufacturer] = useState('honda')
@@ -33,6 +32,7 @@ export default function Home() {
         fuel: fuel.toLowerCase() || '',
         limit: limit || 10,
       })
+
       setAllCars(result)
     } catch (error) {
       console.log(error)

@@ -1,9 +1,9 @@
 'use client'
 
 import { CarProps } from '@/types'
-import { calculateCarRent } from '@/utils'
+import { calculateCarRent, generateCarImageUrl } from '@/utils'
 import Image from 'next/image'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import CustomButton from './CustomButton'
 import CarDetails from './CarDetails'
 
@@ -17,6 +17,19 @@ const CarCard = ({ car }: CarCardProps) => {
   const carRent = calculateCarRent(city_mpg, year)
 
   const [isOpen, setIsOpen] = useState(false)
+
+  useEffect(() => {
+    const img = async () => {
+      try {
+        const carImg = await generateCarImageUrl(car)
+        console.log(carImg)
+        console.log('result')
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    img()
+  }, [])
 
   return (
     <div className='car-card group'>
