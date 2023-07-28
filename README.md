@@ -16,7 +16,6 @@
 
 ![Screenshot](demo2.png)
 
-![Screenshot](demo3.png)
 
 ### Prerequisites
 
