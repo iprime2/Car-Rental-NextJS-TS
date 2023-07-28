@@ -12,9 +12,11 @@
 - Full responsiveness
 
 
-![Screenshot](demo.png)
-
 ![Screenshot](demo1.png)
+
+![Screenshot](demo2.png)
+
+![Screenshot](demo3.png)
 
 ### Prerequisites
 
@@ -35,18 +37,7 @@ npm install
 ### Setup .env file
 
 ```
-NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
-CLERK_SECRET_KEY=
-NEXT_PUBLIC_CLERK_SIGN_IN_URL=
-NEXT_PUBLIC_CLERK_SIGN_UP_URL=
-NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=
-NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=
-OPENAI_API_KEY=
-REPLICATE_API_KEY=
-DATABASE_URL=
-STRIPE_API_KEY=
-NEXT_PUBLIC_APP_URL=
-STRIPE_WEBHOOK_SECRET=
+
 ```
  
 ### Setup Prisma
