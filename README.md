@@ -1,25 +1,16 @@
-# Full Stack AI SAAS with Next.js 13, Clerk, Stripe, App Router, Typescript, Crisp, Shadcn UI, Tailwind, Prisma, MySQL, Planet Scale, NextAuth 2023
+# Full Stack Car Rental with Next.js 13, Typescript, and Tailwind
 
 #### https://sushil-car-rental.vercel.app
 
 ### Features:
-
-- I have used Shadcn UI for the AI-SASS web app!
-- You will be able to log in using Clerk Authentication!
-- Chat, Image, Music and video code prediction generator
-- I have used OpenAI APIs for chat, image, and code generation, and Replicate APIs for video and music generation
-- Free trial of up to 5 predictions on new account
-- Pro membership to access unlimited ai predictions
-- I have added the crisp chat bot for customer support
+ 
+- Rent cars online
+- Filter cars with a brand name, model, year, and fuel type.
+- Pop-up modal to see car details
 - Tailwind design
 - Tailwind animations and effects
 - Full responsiveness
-- Page loading state
-- Page empty state
-- Server error handling using react-toast
-- Stripe checkout subscription
-- Stripe webhooks
-- MySQL + Prisma + PlanetScale
+
 
 ![Screenshot](demo.png)
 
